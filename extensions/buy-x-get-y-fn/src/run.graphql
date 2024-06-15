@@ -1,0 +1,27 @@
+query RunInput($selectedProductTags: [String!]!) {
+  cart {
+    lines {
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          product {
+            id
+            hasAnyTag(tags: $selectedProductTags)
+            hasTags(tags: $selectedProductTags) {
+              hasTag
+              tag
+            }
+          }
+        }
+      }
+      quantity
+    }
+  }
+
+  discountNode {
+    metafield(namespace: "$app:bxgy-discount", key: "function-configuration") {
+      value
+    }
+  }
+}
