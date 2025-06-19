@@ -1,0 +1,27 @@
+query RunInput {
+  cart {
+    lines {
+      id
+      quantity
+      cost {
+        compareAtAmountPerQuantity {
+          amount
+        }
+        amountPerQuantity {
+          amount
+        }
+      }
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          product {
+            id
+            hasAnyTag(tags: ["Prebuzz EOSS"])
+          }
+        }
+      }
+      quantity
+    }
+  }
+}

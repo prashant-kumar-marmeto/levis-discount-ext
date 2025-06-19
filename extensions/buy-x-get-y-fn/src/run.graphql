@@ -1,6 +1,20 @@
 query RunInput($selectedProductTags: [String!]!) {
   cart {
     lines {
+      cost {
+        compareAtAmountPerQuantity {
+          amount
+        }
+        amountPerQuantity {
+          amount
+        }
+        # subtotalAmount {
+        #   amount
+        # }
+        # totalAmount {
+        #   amount
+        # }
+      }
       merchandise {
         __typename
         ... on ProductVariant {

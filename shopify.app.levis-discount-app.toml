@@ -1,13 +1,12 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "ce3d37682eb4c951fd664470f1cba111"
-name = "[staging] levis-bxgy"
-handle = "staging-levis-bxgy"
+client_id = "e8eec4970fe4f72877d74bc7ceee98cc"
+name = "levis-discount-app"
+handle = "levis-discount-app"
 application_url = "https://shopify.dev/apps/default-app-home"
 embedded = true
 
 [build]
-dev_store_url = "cod-app-testing.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]

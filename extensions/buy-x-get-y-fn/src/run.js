@@ -34,6 +34,9 @@ export function run(input) {
       linesWithTag.push({
         id: line.merchandise.id,
         quantity: line.quantity,
+        cost:
+          line.cost.compareAtAmountPerQuantity?.amount ||
+          line.cost.amountPerQuantity.amount,
       });
     }
   });
@@ -43,7 +46,9 @@ export function run(input) {
     (acc, line) => acc + line.quantity,
     0
   );
-  linesWithTag.sort((a, b) => a.quantity - b.quantity);
+
+  // linesWithTag.sort((a, b) => a.quantity - b.quantity);
+  linesWithTag.sort((a, b) => b.cost - a.cost);
 
   if (totalQuantity >= 4) {
     // 4 or more different items
@@ -53,26 +58,28 @@ export function run(input) {
     //  1 2 3 4
     //  1 1 1 2
     //  1 1 2 2
+
     let targets;
-    if (linesWithTag.length >= 3) {
-      targets = linesWithTag
-        .reverse()
-        .slice(-2)
-        .map((line) => ({
+
+    if (linesWithTag.length >= 2) {
+      const lastItem = linesWithTag[linesWithTag.length - 1];
+      if (lastItem.quantity >= 2) {
+        targets = [
+          {
+            productVariant: {
+              id: lastItem.id,
+              quantity: 2,
+            },
+          },
+        ];
+      } else {
+        targets = linesWithTag.slice(-2).map((line) => ({
           productVariant: {
             id: line.id,
             quantity: 1,
           },
         }));
-    }
-    // else if (linesWithTag.length >= 3) {}
-    else if (linesWithTag.length >= 2) {
-      targets = linesWithTag.slice(-1).map((line) => ({
-        productVariant: {
-          id: line.id,
-          quantity: 2,
-        },
-      }));
+      }
     } else {
       // item 1 qty 4+
       targets = linesWithTag.slice(-1).map((line) => ({
@@ -90,33 +97,7 @@ export function run(input) {
           value: 100,
         },
       },
-      message: "Buy 2 get 2 free",
-    });
-
-    // item 2 qty 4+
-    // item 3 qty 4+
-  } else if (totalQuantity >= 2) {
-    // possibilities
-    // 2 different items
-    // same item with qty 2
-    // 1 1
-    // 1 2
-    // 1 2 3
-    const targets = linesWithTag.slice(-1).map((lineItem) => ({
-      productVariant: {
-        id: lineItem.id,
-        quantity: 1,
-      },
-    }));
-
-    discounts.push({
-      targets: targets,
-      value: {
-        percentage: {
-          value: 100,
-        },
-      },
-      message: "Buy 1 get 1 free",
+      message: "BUY2GET2",
     });
   }
 

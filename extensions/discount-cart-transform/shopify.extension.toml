@@ -2,13 +2,13 @@ api_version = "2024-04"
 
 [[extensions]]
 name = "t:name"
-handle = "buy-x-get-y-fn"
+handle = "discount-cart-transform"
 type = "function"
 
 description = "t:description"
 
   [[extensions.targeting]]
-  target = "purchase.product-discount.run"
+  target = "purchase.cart-transform.run"
   input_query = "src/run.graphql"
   export = "run"
 
@@ -19,7 +19,3 @@ description = "t:description"
   [extensions.ui.paths]
   create = "/"
   details = "/"
-
-  [extensions.input.variables]
-  namespace = "bxgy-discount"
-  key = "function-configuration"

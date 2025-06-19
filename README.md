@@ -20,7 +20,7 @@ mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppI
 - variables
 {
   "automaticAppDiscount": {
-    "title": "BXGY",
+    "title": "BUY2GET2",
     "functionId": "bcd8d84e-0ab9-4bbc-aeaa-7d6a229bc69c",
     "startsAt": "2024-06-15T08:24:40.924Z",
     "endsAt": null,
@@ -28,7 +28,7 @@ mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppI
       "namespace": "$app:bxgy-discount",
       "key": "function-configuration",
       "type":"json",
-      "value": "[\"bxgy\"]"
+      "value": "{\"selectedProductTags\":[\"Prebuzz EOSS\"]}"
     }
   }
 }
