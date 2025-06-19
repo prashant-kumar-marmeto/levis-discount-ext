@@ -1,4 +1,4 @@
-query RunInput {
+query RunInput{
   cart {
     lines {
       id
@@ -17,7 +17,9 @@ query RunInput {
           id
           product {
             id
-            hasAnyTag(tags: ["Prebuzz EOSS"])
+            # ($selectedProductTags: [String!]!)
+            # hasAnyTag(tags: $selectedProductTags)
+            hasAnyTag(tags: ["B2G2"])
           }
         }
       }

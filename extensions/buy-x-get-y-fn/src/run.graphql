@@ -34,7 +34,7 @@ query RunInput($selectedProductTags: [String!]!) {
   }
 
   discountNode {
-    metafield(namespace: "$app:bxgy-discount", key: "function-configuration") {
+    metafield(namespace: "bxgy-discount", key: "function-configuration") {
       value
     }
   }
