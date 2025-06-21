@@ -1,4 +1,4 @@
-query RunInput($selectedProductTags: [String!]!) {
+query RunInput {
   cart {
     lines {
       cost {
@@ -21,8 +21,8 @@ query RunInput($selectedProductTags: [String!]!) {
           id
           product {
             id
-            hasAnyTag(tags: $selectedProductTags)
-            hasTags(tags: $selectedProductTags) {
+            hasAnyTag(tags: ["BUY2GET2"])
+            hasTags(tags: ["BUY2GET2"]) {
               hasTag
               tag
             }

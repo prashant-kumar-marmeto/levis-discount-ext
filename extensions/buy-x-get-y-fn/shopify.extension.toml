@@ -20,6 +20,6 @@ description = "t:description"
   create = "/"
   details = "/"
 
-  [extensions.input.variables]
-  namespace = "bxgy-discount"
-  key = "function-configuration"
+  # [extensions.input.variables]
+  # namespace = "bxgy-discount"
+  # key = "function-configuration"

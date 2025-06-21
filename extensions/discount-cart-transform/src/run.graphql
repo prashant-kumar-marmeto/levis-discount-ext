@@ -19,7 +19,7 @@ query RunInput{
             id
             # ($selectedProductTags: [String!]!)
             # hasAnyTag(tags: $selectedProductTags)
-            hasAnyTag(tags: ["B2G2"])
+            hasAnyTag(tags: ["BUY2GET2"])
           }
         }
       }

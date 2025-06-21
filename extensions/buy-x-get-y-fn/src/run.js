@@ -94,7 +94,7 @@ export function run(input) {
       targets: targets,
       value: {
         percentage: {
-          value: 100,
+          value: 99.99,
         },
       },
       message: "BUY2GET2",
